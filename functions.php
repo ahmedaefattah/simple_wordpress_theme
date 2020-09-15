@@ -1,20 +1,24 @@
 
 <?php
+// Add Theme Scripts
 
 function add_theme_scripts() { 
-wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css',array(),'4.5.0','all');
-wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css',array(),'1.0.0','all');
+$location = get_template_directory_uri().'/assets';
 
-wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.5.1.min.js', array(), '3.5.1', true);
-wp_enqueue_script( 'popper', get_template_directory_uri() . '/assets/js/popper-1.16.0.min.js', array('jquery'), '1.16.0', true);
-wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery','popper'),'4.5.0',true);
-wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js', array ( 'jquery' ), '1.0.0', true);  
+wp_enqueue_style('bootstrap',$location .'/css/bootstrap.css',array(),'4.5.0','all');
+wp_enqueue_style('styles', $location .'/css/styles.css',array(),'1.0.0','all');
+
+
+wp_enqueue_script('jquery-3.5.1', $location .'/js/jquery-3.5.1.min.js',array(),'3.5.1',false);
+wp_enqueue_script('popper-1.16.0', $location .'/js/popper-1.16.0.min.js',array('jquery-3.5.1'),'1.16.0',true);
+wp_enqueue_script('bootstrap',$location . '/js/bootstrap.min.js',array('jquery-3.5.1','popper-1.16.0'),'4.5.0',true);
+wp_enqueue_script('main', $location .'/js/main.js',array(),'1.0.0', true);  
 }
 
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' ); 
 
 
-
+// Add Widgets
 function themename_widgets_init() {
     register_sidebar( array(
         'name'          => __( 'primary', 'my_theme' ),
@@ -36,6 +40,7 @@ function themename_widgets_init() {
 }
 add_action( 'widgets_init', 'themename_widgets_init' );
 
+//Add Navigation Menu
 function register_my_menus() {
   register_nav_menus(
     array(
@@ -46,6 +51,7 @@ function register_my_menus() {
  }
  add_action( 'init', 'register_my_menus' );
 
+// Add Post Thumbnails Support
 if ( function_exists( 'add_theme_support' ) ) {
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 250, 150); 

@@ -28,7 +28,22 @@
 	        <div class="text-justify"><?php the_content();?></div>
 
 	        <?php wp_link_pages(); ?>
-			
+			<span><?php the_tags(); ?></span>
+		
+			<?php
+			$categories = get_categories( array('orderby' => 'name','order'   => 'ASC') );
+ 
+			foreach( $categories as $category ) {
+			    $category_link = sprintf( 
+			        '<a href="%1$s">%3$s</a>',
+			        esc_url( get_category_link( $category->term_id ) ),
+			        esc_attr( sprintf( __( '%s', 'textdomain' ), $category->name ) ),
+			        esc_html( $category->name )
+			    );
+			     
+			    echo '<span>' . sprintf( esc_html__( 'Category: %s', 'textdomain' ), $category_link ) . '</span> ';
+			    
+			} ?>
 	        <hr>
 
 	        <?php endwhile; ?>
