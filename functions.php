@@ -5,17 +5,17 @@
 function add_theme_scripts() { 
 $location = get_template_directory_uri().'/assets';
 
-wp_enqueue_style('bootstrap',$location .'/css/bootstrap.css',array(),'4.5.0','all');
-wp_enqueue_style('styles', $location .'/css/styles.css',array(),'1.0.0','all');
+wp_enqueue_style( 'bootstrap',  $location .'/css/bootstrap.css',array(),'4.5.0','all');
+wp_enqueue_style( 'styles',  $location .'/css/styles.css',array(),'1.0.0','all');
 
-
-wp_enqueue_script('jquery-3.5.1', $location .'/js/jquery-3.5.1.min.js',array(),'3.5.1',false);
-wp_enqueue_script('popper-1.16.0', $location .'/js/popper-1.16.0.min.js',array('jquery-3.5.1'),'1.16.0',true);
-wp_enqueue_script('bootstrap',$location . '/js/bootstrap.min.js',array('jquery-3.5.1','popper-1.16.0'),'4.5.0',true);
-wp_enqueue_script('main', $location .'/js/main.js',array(),'1.0.0', true);  
+wp_enqueue_script( 'jquery-3.5.1',  $location  .'/js/jquery-3.5.1.min.js', array(), '3.5.1', true);
+wp_enqueue_script( 'popper-1.16.0',  $location  .'/js/popper-1.16.0.min.js', array('jquery-3.5.1'), '1.16.0', true);
+wp_enqueue_script( 'bootstrap',  $location .'/js/bootstrap.min.js', array('jquery-3.5.1','popper-1.16.0'),'4.5.0',true);
+wp_enqueue_script( 'main',  $location . '/js/main.js', array (), '1.0.0', true);  
 }
+add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
-add_action( 'wp_enqueue_scripts', 'add_theme_scripts' ); 
+
 
 
 // Add Widgets
