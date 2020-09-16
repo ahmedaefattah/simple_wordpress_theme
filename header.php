@@ -4,8 +4,7 @@
 		<title><?php wp_title('|',true,'right'); ?></title>
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- Styles -->
-		<link rel="stylesheet" type="text/css" href="<?php echo esc_url( get_stylesheet_uri() ); ?>"  />
+		
 		<?php wp_head(); ?>
 
 	</head>
@@ -28,11 +27,11 @@
 		    
 		    <div class="collapse navbar-collapse" id="collapsibleNavbar">
 		 
-		        <?php wp_nav_menu( array( 'theme_location' => 'header-menu',
-										   'menu' => 'Primary Navigation', 
+		        <?php wp_nav_menu( array(  'theme_location' => 'header-menu',
+										   'menu' => 'primary', 
 										   'container' => '', 
-										   'menu_class' => 'navbar-nav'
-										   
+										   'menu_class' => 'navbar-nav',
+										   'menu_id'  => 'primary-navigation-bar'
 											) ); ?>
 		 	</div>    
 		</nav>

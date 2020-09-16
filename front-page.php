@@ -13,7 +13,12 @@
 	      	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	       
 	        <h2><a href="<?php  esc_url(the_permalink()); ?>"><?php the_title(); ?></a></h2>
-	        <h5 style="display: inline-block;"><?php echo  get_the_author(); ?> <small><?php echo get_the_date(); ?></small></h5>
+
+	        <h5 style="display: inline-block;">
+	        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"> 
+	        	<?php echo get_the_author(); ?></a><small> <?php echo get_the_date(); ?></small>
+	        </h5>
+	      
 	        <span><?php edit_post_link('Edit'); ?></span>
 
 	        <div>
