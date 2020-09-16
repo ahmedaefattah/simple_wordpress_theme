@@ -1,7 +1,6 @@
-
 <?php
-// Add Theme Scripts
 
+// Add Theme Scripts
 function add_theme_scripts() { 
 $location = get_template_directory_uri().'/assets';
 
@@ -14,8 +13,6 @@ wp_enqueue_script( 'bootstrap',  $location .'/js/bootstrap.min.js', array('jquer
 wp_enqueue_script( 'main',  $location . '/js/main.js', array (), '1.0.0', true);  
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
-
-
 
 
 // Add Widgets
@@ -40,6 +37,7 @@ function themename_widgets_init() {
 }
 add_action( 'widgets_init', 'themename_widgets_init' );
 
+
 //Add Navigation Menu
 function register_my_menus() {
   register_nav_menus(
@@ -50,6 +48,7 @@ function register_my_menus() {
    );
  }
  add_action( 'init', 'register_my_menus' );
+
 
 // Add Post Thumbnails Support
 if ( function_exists( 'add_theme_support' ) ) {

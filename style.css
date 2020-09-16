@@ -5,9 +5,13 @@ Description: Simple Wordpress Theme
 Version: 1.0.0
 Requires at least: 4.7
 Requires PHP: 5.2.4
-Tags: featured-images, footer-widgets,post-formats
-*/ 
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: featured-images,footer-widgets,post-formats
+*/
+ 
 body {
 	background-color: white;
 }
+
 

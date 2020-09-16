@@ -1,9 +1,6 @@
-<?php
-
-if ( post_password_required() ) {
+<?php if ( post_password_required() ) {
 	return;
-}
-?>
+} ?>
 
 <div>
 
@@ -15,18 +12,10 @@ if ( post_password_required() ) {
 	<h5><?php echo get_comment_date('',1); ?></h5>
 	<p><?php echo get_comment_text(1); ?></p>
 	<?php endif;?> -->
-	<?php
-	// If comments are closed and there are comments, let's leave a little note, shall we?
-	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-		?> <p> <?php _e( 'Comments are closed.', 'my_theme' ); ?> </p>
-	<?php
-	endif;
-	
-	comment_form();
 
-
-
-
+	<?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :?> 
+		<p> <?php _e( 'Comments are closed.', 'my_theme' ); ?> </p>
+	<?php endif;
+		comment_form();
 	?>
-
 </div>

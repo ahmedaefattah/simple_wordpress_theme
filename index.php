@@ -1,18 +1,15 @@
-
-	  <?php get_header();   ?>
+<?php get_header();?>
 	  
+<div class="container content" >
+	<div class="row">
 
-	  <div class="container content" >
-	    <div class="row">
-
-	      <div class="col-sm-4">
-	      	
-	        <?php get_sidebar('primary'); ?>
+	    <div class="col-sm-4">
+	      	<?php get_sidebar('primary'); ?>
 	      
-	      </div>
+	    </div>
 
-	      <div class="col-sm-8">
-	      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	    <div class="col-sm-8">
+	        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	       
 	        <h2><a href="<?php  esc_url(the_permalink()); ?>"><?php the_title(); ?></a></h2>
 	        <h5 style="display: inline-block;"><?php echo  get_the_author(); ?> <small><?php echo get_the_date(); ?></small></h5>
@@ -64,8 +61,8 @@
 				<p>No posts found.</p>
 		 
 			<?php endif; ?>
-	      </div>
 	    </div>
-	  </div>
+	</div>
+</div>
 
 <?php get_footer();   ?>
