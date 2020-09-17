@@ -16,7 +16,7 @@
 
 	        <h5 style="display: inline-block;">
 	        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"> 
-	        	<?php echo get_the_author(); ?></a><small> <?php echo get_the_date(); ?></small>
+	        	<?php echo get_the_author(); ?></a><small>, <?php echo get_the_date(); ?></small>
 	        </h5>
 	      
 	        <span><?php edit_post_link('Edit'); ?></span>
@@ -33,20 +33,18 @@
 	        <?php wp_link_pages(); ?>
 			<span><?php the_tags(); ?></span>
 		
-			<?php
-			$categories = get_categories( array('orderby' => 'name','order'   => 'ASC') );
- 
-			foreach( $categories as $category ) {
-			    $category_link = sprintf( 
-			        '<a href="%1$s">%3$s</a>',
-			        esc_url( get_category_link( $category->term_id ) ),
-			        esc_attr( sprintf( __( '%s', 'textdomain' ), $category->name ) ),
-			        esc_html( $category->name )
-			    );
-			     
-			    echo '<span>' . sprintf( esc_html__( 'Category: %s', 'textdomain' ), $category_link ) . '</span> ';
-			    
-			} ?>
+			      <?php wp_link_pages(); ?>
+			<span><?php the_tags(); ?></span>
+			<?php $categories = get_the_category();
+			if ( ! empty( $categories ) ) {
+				echo '<span>Category: </span>';
+				foreach( $categories as $category ) {
+			    $category_link  = '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . 
+			    					esc_html( $category->name ) . '</a>'; 
+			
+			 echo '<span>' . sprintf( esc_html__( '%s ', 'textdomain' ), $category_link ) . '</span> '; 
+			}
+		}?>
 	        <hr>
 
 	        <?php endwhile; ?>

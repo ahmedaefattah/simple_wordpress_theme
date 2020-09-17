@@ -8,7 +8,12 @@
 	    </div>
 
 	    <div class="col-sm-8">
-	     
+	     	<?php
+			while ( have_posts() ) :
+				the_post();
+
+				the_content();
+			endwhile; ?>
 	    </div>
 	 </div>
 </div>

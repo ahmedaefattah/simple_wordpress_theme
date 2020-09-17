@@ -24,6 +24,7 @@
 					}?>
 				</div>
 				<div class="text-justify"><?php the_content();?></div>
+				<hr>
 		 		<?php endwhile;?>
 			<?php else: ?>
 				<p>No posts found.</p>
